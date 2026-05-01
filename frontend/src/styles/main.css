@@ -1,11 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   color: #e2e8f0;
   background:
     radial-gradient(circle at top, rgba(34, 197, 94, 0.2), transparent 35%),
     linear-gradient(135deg, #020617 0%, #111827 100%);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 body {
@@ -16,4 +16,3 @@ body {
 #app {
   min-height: 100vh;
 }
-

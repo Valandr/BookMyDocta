@@ -5,4 +5,3 @@ export interface HealthStatus {
   database: 'up' | 'down';
   timestamp: string;
 }
-

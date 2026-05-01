@@ -42,9 +42,15 @@ More details:
 
 ## Prerequisites
 
-- Node.js 20+
-- npm 10+
+- Node.js 20.19.0+
+- npm 10.x
 - Docker and Docker Compose
+
+Use the repository Node version before installing dependencies:
+
+```bash
+nvm use
+```
 
 ## Installation
 
@@ -170,5 +176,6 @@ Commit prefixes:
 ## Troubleshooting
 
 - If `npm ci` fails in CI, ensure `package-lock.json` is committed.
+- Regenerate `package-lock.json` with Node 20.19.0+ only. Do not generate the lockfile with Node 24 if CI runs on Node 20.
 - If the frontend cannot reach the backend, confirm `VITE_API_BASE_URL` and Docker ports.
 - If PostgreSQL is unavailable, rebuild with `make db-reset`.

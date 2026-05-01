@@ -20,4 +20,3 @@
 
 - OpenAPI UI is exposed at `/api/docs`.
 - Update the local Swagger document when adding or changing routes.
-

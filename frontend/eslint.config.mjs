@@ -28,6 +28,7 @@ export default [
     },
     rules: {
       ...tsPlugin.configs.recommended.rules,
+      'vue/html-closing-bracket-newline': 'off',
       'vue/multi-word-component-names': 'off',
       'vue/max-attributes-per-line': 'off',
       'vue/singleline-html-element-content-newline': 'off',
