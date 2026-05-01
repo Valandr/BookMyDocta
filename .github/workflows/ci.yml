@@ -40,6 +40,22 @@ jobs:
       - name: Test frontend
         run: npm run coverage -w frontend
 
+      - name: Upload backend coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: backend/coverage/lcov.info
+          flags: backend
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload frontend coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: frontend/coverage/lcov.info
+          flags: frontend
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+
       - name: Build backend
         run: npm run build -w backend
 

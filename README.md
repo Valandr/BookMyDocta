@@ -1,5 +1,8 @@
 # BookMyDocta Fullstack Starter
 
+![CI](https://github.com/Valandr/BookMyDocta/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://codecov.io/gh/Valandr/BookMyDocta/branch/develop/graph/badge.svg)
+
 Professional fullstack starter for SaaS apps, REST APIs, web platforms and portfolio-grade projects. The repository ships as a monorepo with a TypeScript Express backend, a TypeScript Vue frontend, Docker-based local execution, automated quality gates and AI collaboration guidance.
 
 ## Stack
