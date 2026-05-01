@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-bookmydocta}
+      POSTGRES_USER: ${POSTGRES_USER:-bookmydocta}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me}
+    ports:
+      - '${POSTGRES_PORT:-5432}:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+      target: backend-dev
+    env_file:
+      - backend/.env.example
+    environment:
+      NODE_ENV: development
+      POSTGRES_HOST: postgres
+      FRONTEND_ORIGIN: http://localhost:5173
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend:/app/backend
+      - ./tsconfig.base.json:/app/tsconfig.base.json
+      - /app/node_modules
+    ports:
+      - '${BACKEND_PORT:-3000}:3000'
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+      target: frontend-dev
+    env_file:
+      - frontend/.env.example
+    environment:
+      VITE_API_BASE_URL: http://localhost:3000/api
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app/frontend
+      - ./tsconfig.base.json:/app/tsconfig.base.json
+      - /app/node_modules
+    ports:
+      - '${FRONTEND_PORT:-5173}:5173'
+
+volumes:
+  postgres-data:
+

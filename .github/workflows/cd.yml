@@ -1,0 +1,59 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy-preprod:
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    environment: preprod
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build images
+        run: docker compose -f docker-compose.preprod.yml build
+
+      - name: Deploy preprod
+        run: |
+          echo "TODO: Connect this job to the real preproduction target."
+          echo "Use GitHub Secrets for registry credentials, SSH keys and runtime env vars."
+
+  deploy-prod:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build images
+        run: docker compose -f docker-compose.prod.yml build
+
+      - name: Deploy production
+        run: |
+          echo "TODO: Connect this job to the real production target."
+          echo "Store deployment secrets only in GitHub Secrets or your deployment platform."
+

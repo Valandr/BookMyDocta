@@ -1,0 +1,29 @@
+{
+  "name": "bookmydocta-starter",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "prepare": "test -d .git && husky install || true",
+    "lint": "npm run lint -w backend && npm run lint -w frontend",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run test -w backend && npm run test -w frontend",
+    "test:e2e": "npm run test:e2e -w frontend",
+    "coverage": "npm run coverage -w backend && npm run coverage -w frontend",
+    "build": "npm run build -w backend && npm run build -w frontend"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "cypress": "^4.2.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "vite": "8.0.10"
+  }
+}

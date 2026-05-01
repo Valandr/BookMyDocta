@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-bookmydocta_preprod}
+      POSTGRES_USER: ${POSTGRES_USER:-bookmydocta}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me}
+    volumes:
+      - postgres-preprod-data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+      target: backend-prod
+    environment:
+      NODE_ENV: preprod
+      PORT: 3000
+      APP_NAME: bookmydocta-backend
+      APP_VERSION: 1.0.0-preprod
+      API_PREFIX: /api
+      FRONTEND_ORIGIN: https://preprod.example.com
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-bookmydocta_preprod}
+      POSTGRES_USER: ${POSTGRES_USER:-bookmydocta}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me}
+      LOG_LEVEL: info
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+      target: frontend-prod
+    environment:
+      VITE_API_BASE_URL: https://preprod-api.example.com/api
+    depends_on:
+      - backend
+
+volumes:
+  postgres-preprod-data:
+
