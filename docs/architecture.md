@@ -35,4 +35,3 @@ For `GET /api/health`:
 - Do not call PostgreSQL directly from controllers.
 - Do not place HTTP fetch logic directly inside Vue page templates.
 - Shared helpers must stay generic and not become a dumping ground.
-

@@ -3,4 +3,3 @@ export interface VersionResponseDto {
   version: string;
   environment: string;
 }
-

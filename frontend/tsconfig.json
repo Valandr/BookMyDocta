@@ -12,7 +12,13 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.vue", "tests/**/*.ts", "storybook/**/*.ts", "vite.config.ts", "jest.config.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "storybook/**/*.ts",
+    "vite.config.ts",
+    "jest.config.ts"
+  ],
   "exclude": ["dist", "node_modules"]
 }
-

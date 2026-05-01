@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20.19.0 <21",
+    "npm": ">=10 <11"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -20,9 +24,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
-    "@storybook/addon-essentials": "^7.0.6",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/vue3-vite": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.18",
+    "@storybook/addon-interactions": "^8.6.18",
+    "@storybook/vue3-vite": "^8.6.18",
     "@tailwindcss/postcss": "^4.1.6",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.15.3",
@@ -43,6 +47,6 @@
     "tailwindcss": "^4.1.6",
     "ts-jest": "^29.3.2",
     "typescript": "^5.8.3",
-    "vite": "^8.0.10"
+    "vite": "^6.3.6"
   }
 }

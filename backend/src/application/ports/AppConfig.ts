@@ -3,4 +3,3 @@ export interface AppConfig {
   version: string;
   environment: string;
 }
-

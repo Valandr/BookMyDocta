@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20.19.0
           cache: npm
 
       - name: Install dependencies
@@ -43,7 +43,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20.19.0
           cache: npm
 
       - name: Install dependencies
@@ -56,4 +56,3 @@ jobs:
         run: |
           echo "TODO: Connect this job to the real production target."
           echo "Store deployment secrets only in GitHub Secrets or your deployment platform."
-

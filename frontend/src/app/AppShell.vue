@@ -8,7 +8,10 @@
         </h1>
         <p class="mt-4 text-lg text-slate-300">
           This starter is wired to a secured TypeScript backend and validates the integration by
-          calling <code class="rounded bg-white/10 px-2 py-1 text-sm text-emerald-200">GET /api/health</code>.
+          calling
+          <code class="rounded bg-white/10 px-2 py-1 text-sm text-emerald-200">
+            GET /api/health </code
+          >.
         </p>
       </div>
       <HealthStatus />

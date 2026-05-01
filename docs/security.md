@@ -31,4 +31,3 @@
 - Keep Docker images minimal.
 - Restrict production environment variables to what is required.
 - Add TLS, reverse proxying and managed secrets before public deployment.
-

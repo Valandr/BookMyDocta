@@ -1,10 +1,15 @@
 <template>
-  <section class="w-full max-w-xl rounded-3xl border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-emerald-950/30 backdrop-blur">
+  <section
+    class="w-full max-w-xl rounded-3xl border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-emerald-950/30 backdrop-blur"
+  >
     <p class="text-xs uppercase tracking-[0.3em] text-emerald-300">API Status</p>
     <h2 class="mt-3 text-3xl font-semibold text-white">Backend connectivity</h2>
 
     <div v-if="loading" class="mt-6 text-slate-300">Loading API health...</div>
-    <div v-else-if="error" class="mt-6 rounded-2xl border border-rose-500/40 bg-rose-950/40 p-4 text-rose-200">
+    <div
+      v-else-if="error"
+      class="mt-6 rounded-2xl border border-rose-500/40 bg-rose-950/40 p-4 text-rose-200"
+    >
       {{ error }}
     </div>
     <dl v-else-if="health" class="mt-6 grid gap-4 text-sm text-slate-200 sm:grid-cols-2">
